@@ -3,7 +3,7 @@
     Github: https://github.com/namu00/verilog_uart_module
 
     Target Clock: 50Mhz
-    Module Description: UART RX module
+    Module Description: UART RX module with NO Parity bit
 */
 
 module uart_rx#(
