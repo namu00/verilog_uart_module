@@ -1,0 +1,4 @@
+#modelsim files
+work/
+*.wlf
+*.do
