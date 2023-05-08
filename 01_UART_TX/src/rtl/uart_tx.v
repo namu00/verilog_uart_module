@@ -34,7 +34,7 @@ module uart_tx#(
     localparam DATA5 = 7;
     localparam DATA6 = 8;
     localparam DATA7 = 9;
-    //localparam STOP = 10;
+    localparam STOP = 10;
 
     reg [CNT_WIDTH-1 : 0] clk_cnt;  //clock counter for generating tick
     reg [3:0] c_state, n_state;
@@ -83,7 +83,8 @@ module uart_tx#(
             DATA4:  n_state = (symbol_edge) ? DATA5 : c_state;
             DATA5:  n_state = (symbol_edge) ? DATA6 : c_state;
             DATA6:  n_state = (symbol_edge) ? DATA7 : c_state;
-            DATA7:  n_state = (symbol_edge) ? IDLE : c_state;
+            DATA7:  n_state = (symbol_edge) ? STOP : c_state;
+            STOP:   n_state = (symbol_edge) ? IDLE : c_state;
             default: n_state = IDLE;
         endcase
     end
@@ -101,6 +102,7 @@ module uart_tx#(
             DATA5:  s_out = uart_buffer[5];
             DATA6:  s_out = uart_buffer[6];
             DATA7:  s_out = uart_buffer[7];
+            STOP:   s_out = 1'b1;
             default: s_out = 1'b1;
         endcase
     end
