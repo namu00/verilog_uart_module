@@ -36,14 +36,15 @@ module uart_rx#(
     localparam STOP = 10;
 
     reg [CNT_WIDTH-1 : 0] clk_cnt;  //clock counter for generating tick
-    reg [7:0] uart_buffer;          //UART byte buffer
+    reg [9:0] uart_buffer;          //UART byte buffer
     reg valid, valid_d;             //validation edge detecting register
 
     reg [3:0] c_state, n_state;     //state register
 
-    wire symbol_edge;               //buffer update ticker
+    wire stop;
+    wire start;
     wire busy;                      //busy flag
-    wire start, stop;               //start & stop flag
+    wire symbol_edge;               //buffer update ticker
 
     //flag assigment
     assign start = (!serial_in) && (!busy); 
@@ -52,7 +53,7 @@ module uart_rx#(
     assign symbol_edge = (clk_cnt == (SAMPLE_TIME-1)) ? 1'b1 : 1'b0;
 
     //output assignment
-    assign uart_out = uart_buffer;
+    assign uart_out = uart_buffer[8:1];
     assign uart_out_valid = (!valid) && (valid_d);
 
 
@@ -105,22 +106,13 @@ module uart_rx#(
 
     //state behavior assigner
     always @(posedge clk or negedge n_rst)begin
-        if(!n_rst)      uart_buffer <= 8'h00;
-        else if(start)  uart_buffer <= 8'h00;
-        else if(symbol_edge) begin
-            case(c_state) 
-                START: uart_buffer[0] <= serial_in;
-                DATA0: uart_buffer[1] <= serial_in;
-                DATA1: uart_buffer[2] <= serial_in;
-                DATA2: uart_buffer[3] <= serial_in;
-                DATA3: uart_buffer[4] <= serial_in;
-                DATA4: uart_buffer[5] <= serial_in;
-                DATA5: uart_buffer[6] <= serial_in;
-                DATA6: uart_buffer[7] <= serial_in;
-
-                default: uart_buffer <= uart_buffer;
-            endcase
-        end
-        else uart_buffer <= uart_buffer;
+        if(!n_rst)
+            uart_buffer <= 10'h0;
+        else if(busy && symbol_edge && !stop)
+            uart_buffer <= {serial_in,uart_buffer[9:1]};
+        else if(uart_out_valid)
+            uart_buffer <= 10'h0;
+        else
+            uart_buffer <= uart_buffer;
     end
 endmodule
