@@ -1,12 +1,5 @@
 # verilog_uart_module
 > ### Variable baudrate support uart module
-## Dir Description
-|Name|Description|Tag|    
-|:---:|:---:|:---:|  
-|ECHOBACK_TEST|FPGA Implementation & Echo-Back Test|Test|  
-|RX| UART_Rx module design|-|  
-|TX| UART_Tx module design|-|
-|UART| UART integrated module desin|TOP module|    
 ## Specs
 |Object|Number|  
 |:--:|:--:|  
@@ -17,6 +10,13 @@
 |I/O BUFFER SIZE|8 Bit|   
 |STOP BIT|1 Bit|  
 |PARITY BIT|NO|     
+## Dir Description
+|Name|Description|Tag|    
+|:---:|:---:|:---:|  
+|ECHOBACK_TEST|FPGA Implementation & Echo-Back Test|Test|  
+|RX| UART_Rx module design|-|  
+|TX| UART_Tx module design|-|
+|UART| UART integrated module desin|TOP module|    
 ## Module Behavior
 
 - ### UART_RX
