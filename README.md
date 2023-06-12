@@ -9,11 +9,6 @@
 |INPUT BUFFER SIZE|8 Bit|      
 |STOP BIT|1 Bit|  
 |PARITY BIT|NO|     
-
-## Design Hierarchy
-> - ## uart (top)
->   - ### uart_rx (sub module)
->   - ### uart_tx (sub module)
 ## Module Behavior
 
 - ### UART_RX
