@@ -13,4 +13,4 @@
 ## Module Behavior
 
 - ### UART_RX
-[uart_rx](./_Images/uart_rx.svg)
+![uart_rx](./_Images/uart_rx.svg)
