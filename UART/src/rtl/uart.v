@@ -1,4 +1,7 @@
-module uart(
+module uart#(
+    parameter CLK_FREQ = 50_000_000,
+    parameter BAUD_RATE = 115_200
+)(
     input clk,
     input n_rst,
 
@@ -13,9 +16,6 @@ module uart(
     input RxD, 
     output TxD
 );
-
-    localparam CLK_FREQ = 50_000_000;
-    localparam BAUD_RATE = 115_200;
 
     uart_rx #(
         .CLK_FREQ(CLK_FREQ),
