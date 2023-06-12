@@ -1,5 +1,12 @@
 # verilog_uart_module
 > ### Variable baudrate support uart module
+## Dir Description
+|Name|Description|Tag|    
+|:---:|:---:|:---:|  
+|ECHOBACK_TEST|FPGA Implementation & Echo-Back Test|Test|  
+|RX| UART_Rx module design|-|  
+|TX| UART_Tx module design|-|
+|UART| UART integrated module desin|TOP module|    
 ## Specs
 |Object|Number|  
 |:--:|:--:|  
