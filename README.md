@@ -16,7 +16,7 @@
 |ECHOBACK_TEST|FPGA Implementation & Echo-Back Test|Test|  
 |RX| UART_Rx module design|-|  
 |TX| UART_Tx module design|-|
-|UART| UART integrated module desin|TOP module|    
+|UART| UART integrated module design|TOP module|    
 ## Module Behavior
 
 - ### UART_RX
