@@ -4,7 +4,7 @@
 |Object|Number|  
 |:--:|:--:|  
 |CLOCK FREQ| 50MHz or Above|  
-|RESET TYPE| neg-active reset|
+|RESET TYPE| Asynchronous neg-active reset|
 |BAUD RATE| Variable (2400 ~ 250K)|  
 |CONNECTOR TYPE| RS-232 or CP210x|  
 |I/O BUFFER SIZE|8 Bit|   
