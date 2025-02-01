@@ -4,7 +4,7 @@
 |Object|Number|  
 |:--:|:--:|  
 |CLOCK FREQ| 50MHz or Above|  
-|RESET TYPE| Asynchronous neg-active reset|
+|RESET TYPE| Asynchronous low-active reset|
 |TRSF TYPE| LSB FIRST|  
 |BAUD RATE| Variable (2400 ~ 250K)|  
 |CONNECTOR TYPE| RS-232 or CP210x|  
